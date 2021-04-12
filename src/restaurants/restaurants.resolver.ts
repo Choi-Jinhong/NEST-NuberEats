@@ -1,9 +1,10 @@
 import { Query, Resolver } from "@nestjs/graphql";
+import { Restaurant } from "./Entities/restaurant.entity";
 
-@Resolver()
+@Resolver(of => Restaurant)
 export class RestaurantResolver {
-    @Query(returns => Boolean)
-    isPizzaGood(): Boolean {
+    @Query(returns => Restaurant)
+    myRestaurant() {
         return true;
     }
 }
