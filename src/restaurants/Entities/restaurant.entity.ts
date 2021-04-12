@@ -5,6 +5,6 @@ import { Field, ObjectType } from '@nestjs/graphql';
 export class Restaurant {
   @Field((type) => String)
   name: string;
-  @Field((type) => Boolean, { nullable: true })
+  @Field((type) => Boolean, { nullable: true }) // nullable: null 값 가능을 나타내는 옵션
   isGood?: boolean;
 }
