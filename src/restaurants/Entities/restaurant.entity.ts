@@ -1,7 +1,8 @@
-import { Field, ObjectType } from '@nestjs/graphql';
+import { Field, InputType, ObjectType } from '@nestjs/graphql';
+import { IsBoolean, IsString, Length } from 'class-validator';
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
-// 데이터 베이스의 모델을 의미하는 파일
+@InputType({ isAbstract: true })
 @ObjectType()
 @Entity()
 export class Restaurant {
@@ -11,21 +12,17 @@ export class Restaurant {
 
   @Field((type) => String)
   @Column()
+  @IsString()
+  @Length(5)
   name: string;
 
   @Field((type) => Boolean) // nullable: null 값 가능을 나타내는 옵션
   @Column()
+  @IsBoolean()
   isVegan?: boolean;
 
   @Field((type) => String)
   @Column()
+  @IsString()
   address: string;
-
-  @Field((type) => String)
-  @Column()
-  ownerName: string;
-
-  @Field((type) => String)
-  @Column()
-  category: string;
 }
