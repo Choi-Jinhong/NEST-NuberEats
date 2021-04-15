@@ -11,3 +11,6 @@ The Backend of Nuber Eats Clone
 - email
 - password
 - role(client | owner | delivery)
+
+## User CRUD: 
+- Create Account
